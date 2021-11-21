@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="icon" type="image/png" href="./img/CILKGax.png">
+        <!-- Tiêu đề của trang dòng thời gian -->
+		<title>Đôi lời của anh em gửi tới chị</title>	    
+        <link type="text/css" rel="stylesheet" href="./css/default.css">
+        <link rel="stylesheet" href="./css/style.css">
+		<script type="text/javascript" src="./js/jquery.min.js"></script>
+		<script type="text/javascript" src="./js/jscex.min.js"></script>
+		<script type="text/javascript" src="./js/jscex-parser.js"></script>
+		<script type="text/javascript" src="./js/jscex-jit.js"></script>
+		<script type="text/javascript" src="./js/jscex-builderbase.min.js"></script>
+		<script type="text/javascript" src="./js/jscex-async.min.js"></script>
+		<script type="text/javascript" src="./js/jscex-async-powerpack.min.js"></script>
+		<script type="text/javascript" src="./js/functions.js" charset="utf-8"></script>
+		<script type="text/javascript" src="./js/love.js" charset="utf-8"></script>
+	    <style type="text/css"></style>
+
+</head>
+    <body>
+        <div class="buttons">
+            <a href="index.html" class="btn btn-bir">Sinh nhật</a>
+            <a href="timeline.html" class="btn btn-timeline">Đôi lời tâm sự</a>
+            <a href="timeline2.html" class="btn btn-timeline">Đôi lời tâm sự 2</a>
+            <a href="timeline3.html" class="btn btn-timeline">Đôi lời tâm sự 3</a>
+            <a href="gallery.html" class="btn btn-gallery">Ảnh kĩ niệm</a>
+        </div>
+        <div id="main">
+             <div id="wrap">
+                <div id="text">
+			        <div id="code">
+					<!-- 4. CHỈNH SỬA LỜI CHÚC CỦA BẠN TẠI ĐÂY-->
+			      <font color="#3500ff"><span class="say">Chúc em sinh nhật thành công mọi điều viên mãn.Hạnh phúc,thực hiện mọi mơ ước trong cuộc đời mình.</span><br>
+						<span class="say">Chúc em mọi điều như ý,vui vẻ và bình an</span><br>
+						<span class="say">Em Việt Trung,Chúc mừng sinh nhật chị. Chúc chị ngày càng xinh đẹp,luôn vui vẻ hạnh phúc, thành công trong mọi công việc và cuộc sống.</span><br>
+						<span class="say"> "Quỳnh ơi. T ấn tượng ở bà luôn có sự máu lửa. Chiến đấu đến cùng, tìm mọi cách động viên, khích lệ để có được kết quả tốt cho mình và ae. Rất tự hào vì được ở trong HT DQC. Tuổi mới luôn luôn bên ngoài xinh đẹp, bên trong nhiều tiền nhé. ❤❤ </span><br>
+						<span class="say">Hello c Quỳnh xinh đẹp🥰 Hôm nay là 1 ngày đặc biệt của chị , và là của toàn thể ae trong DQC . Chúc mừng sinh nhật c , chúc chị Quỳnh của em lúc nào cũng vui tươi , hồn nhiên , chúc chị thật nhiều sức khoẻ , sớm tìm cho mình được 1 người bạn đồng hành , cảm thông và yêu chị đến suốt cuộc đời ❤️ Em cảm thấy rất may mắn khi được tiếp xúc và làm việc cùng với chị , mặc dù em chưa thật sự cố gắng như những gì em đã nói , đã hứa với chị nhưng mà chị vẫn luôn ân cần , chỉ cho em từng cái nhỏ nhất để em tốt hơn trong công việc , em cảm ơn chị rất nhiều ❤️ . Mong chị vẫn luôn là người thuyền trưởng nắm lái cho anh em DQC ngày càng phát triển mạnh hơn , tạo ra được những con người tuyệt vời như chị ❤️❤️ Love youuu 3000.</span><br>
+						<span class="say">Chúc mừng sinh nhật em Quỳnh, người phụ nữ mạnh mẽ và nhiệt huyết nhất mà anh biết. Chúc em thêm một tuổi mới nhiều niềm vui, hạnh phúc và thành công ❤️❤️❤️❤️ </span><br>
+						<span class="say">Chúc chị Quỳnh tuổi mới lúc nào cũng luôn vui vẻ xinh đẹp và đạt được nhiều thành công trong cuộc sống </span><br>
+						
+                </div>
+                <div id="clock-box">
+					<span class="STYLE1">  </span>  <!--Có thể thay đổi chổ này thành số tuổi của người bạn muốn chúc -->
+                  <div id="clock"></div>
+              </div>
+                <canvas id="canvas" width="1100" height="680"></canvas>
+            </div>
+            
+        </div>
+
+    <!-- Phần nhạc -->
+    <audio id="player" autoplay loop>
+        <source src="./music/music.mp3" type="audio/mp3" />
+    </audio>
+    <script>
+    (function(){
+        var canvas = $('#canvas');
+		
+        if (!canvas[0].getContext) {
+            $("#error").show();
+            return false;        }
+
+        var width = canvas.width();
+        var height = canvas.height();        
+        canvas.attr("width", width);
+        canvas.attr("height", height);
+        var opts = {
+            seed: {
+                x: width / 2 - 20,
+                color: "rgb(190, 26, 37)",
+                scale: 2
+            },
+            branch: [
+                [535, 680, 570, 250, 500, 200, 30, 100, [
+                    [540, 500, 455, 417, 340, 400, 13, 100, [
+                        [450, 435, 434, 430, 394, 395, 2, 40]
+                    ]],
+                    [550, 445, 600, 356, 680, 345, 12, 100, [
+                        [578, 400, 648, 409, 661, 426, 3, 80]
+                    ]],
+                    [539, 281, 537, 248, 534, 217, 3, 40],
+                    [546, 397, 413, 247, 328, 244, 9, 80, [
+                        [427, 286, 383, 253, 371, 205, 2, 40],
+                        [498, 345, 435, 315, 395, 330, 4, 60]
+                    ]],
+                    [546, 357, 608, 252, 678, 221, 6, 100, [
+                        [590, 293, 646, 277, 648, 271, 2, 80]
+                    ]]
+                ]] 
+            ],
+            bloom: {
+                num: 700,
+                width: 1080,
+                height: 650,
+            },
+            footer: {
+                width: 1200,
+                height: 5,
+                speed: 10,
+            }
+        }
+
+        var tree = new Tree(canvas[0], width, height, opts);
+        var seed = tree.seed;
+        var foot = tree.footer;
+        var hold = 1;
+
+        canvas.click(function(e) {
+            var offset = canvas.offset(), x, y;
+            x = e.pageX - offset.left;
+            y = e.pageY - offset.top;
+            if (seed.hover(x, y)) {
+                hold = 0; 
+                canvas.unbind("click");
+                canvas.unbind("mousemove");
+                canvas.removeClass('hand');
+            }
+        }).mousemove(function(e){
+            var offset = canvas.offset(), x, y;
+            x = e.pageX - offset.left;
+            y = e.pageY - offset.top;
+            canvas.toggleClass('hand', seed.hover(x, y));
+        });
+
+        var seedAnimate = eval(Jscex.compile("async", function () {
+            seed.draw();
+            while (hold) {
+                $await(Jscex.Async.sleep(10));
+            }
+            while (seed.canScale()) {
+                seed.scale(0.95);
+                $await(Jscex.Async.sleep(10));
+            }
+            while (seed.canMove()) {
+                seed.move(0, 2);
+                foot.draw();
+                $await(Jscex.Async.sleep(10));
+            }
+        }));
+
+        var growAnimate = eval(Jscex.compile("async", function () {
+            do {
+    	        tree.grow();
+                $await(Jscex.Async.sleep(10));
+            } while (tree.canGrow());
+        }));
+
+        var flowAnimate = eval(Jscex.compile("async", function () {
+            do {
+    	        tree.flower(2);
+                $await(Jscex.Async.sleep(10));
+            } while (tree.canFlower());
+        }));
+
+        var moveAnimate = eval(Jscex.compile("async", function () {
+            tree.snapshot("p1", 240, 0, 610, 680);
+            while (tree.move("p1", 500, 0)) {
+                foot.draw();
+                $await(Jscex.Async.sleep(10));
+            }
+            foot.draw();
+            tree.snapshot("p2", 500, 0, 610, 680);
+
+            canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
+            canvas.css("background", "#ffe");
+            $await(Jscex.Async.sleep(300));
+            canvas.css("background", "none");
+        }));
+
+        var jumpAnimate = eval(Jscex.compile("async", function () {
+            var ctx = tree.ctx;
+            while (true) {
+                tree.ctx.clearRect(0, 0, width, height);
+                tree.jump();
+                foot.draw();
+                $await(Jscex.Async.sleep(25));
+            }
+        }));
+
+        var textAnimate = eval(Jscex.compile("async", function () {
+		    			
+
+		    $("#code").show().typewriter();
+            $("#clock-box").fadeIn(500);
+            while (true) {
+                timeElapse(together);
+                $await(Jscex.Async.sleep(1000));
+            }
+        }));
+
+        var runAsync = eval(Jscex.compile("async", function () {
+            $await(seedAnimate());
+            $await(growAnimate());
+            $await(flowAnimate());
+            $await(moveAnimate());
+
+            textAnimate().start();
+
+            $await(jumpAnimate());
+        }));
+
+        runAsync().start();
+    })();
+    </script>
+</div>
+</body>
+</html>
